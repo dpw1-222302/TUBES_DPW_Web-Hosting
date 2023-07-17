@@ -15,7 +15,7 @@
         <a class="navbar-brand" href="#">
             <h1>Logo</h1>
         </a>
-        <div class="collapse navbar-collapse offset-10" id="navbarNav">
+        <div class="collapse navbar-collapse offset-9" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="index.php">Home</a>
@@ -25,6 +25,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="admin/dataPendaftar.php">Reservasi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="history.php">History</a>
                 </li>
             </ul>
         </div>
