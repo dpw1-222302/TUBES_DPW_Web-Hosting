@@ -24,7 +24,7 @@
                     <a class="nav-link" href="login.php">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="admin/dataPendaftar.php">Reservasi</a>
+                    <a class="nav-link" href="history.php">History</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="history.php">History</a>
