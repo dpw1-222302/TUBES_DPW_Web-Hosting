@@ -14,10 +14,10 @@
         <div class="collapse navbar-collapse offset-9" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="../index.php">Home</a>
+                    <a class="nav-link" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../login.php">Login</a>
+                    <a class="nav-link" href="login.php">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="history.php">Reservasi</a>
@@ -28,11 +28,11 @@
     <div class="container">
         <br>
         <h4>
-            <center>DAFTAR RESERVASI PERAWATAN</center>
+            <center>RIWAYAT RESERVASI</center>
         </h4>
         <?php
 
-        include "../koneksi.php";
+        include "koneksi.php";
 
         //Cek apakah ada kiriman form dari method post
         if (isset($_GET['id_peserta'])) {
@@ -63,13 +63,11 @@
                             <th>Jurusan</th>
                             <th>No Hp</th>
                             <th>Alamat</th>
-                            <th colspan='2'>Aksi</th>
-
                         </tr>
             </thead>
 
             <?php
-            include "../koneksi.php";
+            include "koneksi.php";
             $sql = "select * from peserta order by id_peserta desc";
 
             $hasil = mysqli_query($kon, $sql);
@@ -86,17 +84,13 @@
                         <td><?php echo $data["jurusan"];   ?></td>
                         <td><?php echo $data["no_hp"];   ?></td>
                         <td><?php echo $data["alamat"];   ?></td>
-                        <td>
-                            <a href="update.php?id_peserta=<?php echo htmlspecialchars($data['id_peserta']); ?>" class="btn btn-warning" role="button">Update</a>
-                            <a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>?id_peserta=<?php echo $data['id_peserta']; ?>" class="btn btn-danger" role="button">Delete</a>
-                        </td>
                     </tr>
                 </tbody>
             <?php
             }
             ?>
             </table>
-            <a href="../create.php" class="btn btn-primary" role="button">Tambah Data</a>
+            <a href="create.php" class="btn btn-primary" role="button">Tambah Data</a>
     </div>
 </body>
 
