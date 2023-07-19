@@ -4,7 +4,7 @@
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 </head>
-<title>Daftar Reservasi</title>
+<title>Riwayat Reservasi</title>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -56,13 +56,14 @@
             <thead>
                 <tr>
                     <table class="my-3 table table-bordered">
-                        <tr class="table-primary">
+                        <tr class="table-primary text-center">
                             <th>No</th>
                             <th>Nama</th>
                             <th>Alamat</th>
                             <th>Keluhan</th>
                             <th>No Hp</th>
-                            <th>Jaadwal</th>
+                            <th>Jadwal</th>
+                            <th colspan='1'>Aksi</th>
                         </tr>
             </thead>
 
@@ -84,6 +85,9 @@
                         <td><?php echo $data["keluhan"];   ?></td>
                         <td><?php echo $data["no_hp"];   ?></td>
                         <td><?php echo $data["jadwal"];   ?></td>
+                        <td>
+                            <a href="update.php?id_peserta=<?php echo htmlspecialchars($data['id_peserta']); ?>" class="btn btn-warning" role="button">Update</a>
+                        </td>
                     </tr>
                 </tbody>
             <?php
