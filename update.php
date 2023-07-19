@@ -27,7 +27,6 @@
         $hasil=mysqli_query($kon,$sql);
         $data = mysqli_fetch_assoc($hasil);
 
-
     }
 
     //Cek apakah ada kiriman form dari method post
@@ -35,18 +34,18 @@
 
         $id_peserta=htmlspecialchars($_POST["id_peserta"]);
         $nama=input($_POST["nama"]);
-        $sekolah=input($_POST["sekolah"]);
-        $jurusan=input($_POST["jurusan"]);
-        $no_hp=input($_POST["no_hp"]);
         $alamat=input($_POST["alamat"]);
+        $keluhan=input($_POST["keluhan"]);
+        $no_hp=input($_POST["no_hp"]);
+        $jadwal=input($_POST["jadwal"]);
 
         //Query update data pada tabel anggota
         $sql="update peserta set
 			nama='$nama',
-			sekolah='$sekolah',
-			jurusan='$jurusan',
+			alamat='$alamat',
+			keluhan='$keluhan',
 			no_hp='$no_hp',
-			alamat='$alamat'
+			jadwal='$jadwal'
 			where id_peserta=$id_peserta";
 
         //Mengeksekusi atau menjalankan query diatas
@@ -54,7 +53,7 @@
 
         //Kondisi apakah berhasil atau tidak dalam mengeksekusi query diatas
         if ($hasil) {
-            header("Location:index.php");
+            header("Location: admin/dataPendaftar.php");
         }
         else {
             echo "<div class='alert alert-danger'> Data Gagal disimpan.</div>";
@@ -64,32 +63,34 @@
     }
 
     ?>
-    <h2>Update Data</h2>
+    <h2 class="mb-5 mt-4"><center>Update Data</center></h2>
 
 
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
         <div class="form-group">
             <label>Nama:</label>
-            <input type="text" name="nama" class="form-control" placeholder="Masukan Nama" required />
+            <input type="text" name="nama" class="form-control" placeholder="Masukan Nama" required value="<?php echo $data['nama'];?>"/>
 
-        </div>
-        <div class="form-group">
-            <label>Sekolah:</label>
-            <input type="text" name="sekolah" class="form-control" placeholder="Masukan Nama Sekolah" required/>
-        </div>
-        <div class="form-group">
-            <label>Jurusan :</label>
-            <input type="text" name="jurusan" class="form-control" placeholder="Masukan Jurusan" required/>
-        </div>
-        <div class="form-group">
-            <label>No HP:</label>
-            <input type="text" name="no_hp" class="form-control" placeholder="Masukan No HP" required/>
         </div>
         <div class="form-group">
             <label>Alamat:</label>
-            <textarea name="alamat" class="form-control" rows="5"placeholder="Masukan Alamat" required></textarea>
+            <input type="text" name="alamat" class="form-control" placeholder="Masukan Alamat" required
+            value="<?php echo $data['alamat'];?>"/>
         </div>
-
+        <div class="form-group">
+            <label>Keluhan :</label>
+            <input type="text" name="keluhan" class="form-control" placeholder="Masukan Keluhan" required
+            value="<?php echo $data['keluhan'];?>"/>
+        </div>
+        <div class="form-group">
+            <label>No HP:</label>
+            <input type="text" name="no_hp" class="form-control" placeholder="Masukan No HP" required
+            value="<?php echo $data['no_hp'];?>"/>
+        </div>
+        <div class="form-group">
+            <label>Jadwal:</label>
+            <input class="form-control" type="date" id="birthday" name="jadwal" required
+            value="<?php echo $data['jadwal'];?>"/>
         <input type="hidden" name="id_peserta" value="<?php echo $data['id_peserta']; ?>" />
 
         <button type="submit" name="submit" class="btn btn-primary">Submit</button>

@@ -43,7 +43,7 @@
 
             //Kondisi apakah berhasil atau tidak
             if ($hasil) {
-                header("Location:index.php");
+                header("Location:history.php");
             } else {
                 echo "<div class='alert alert-danger'> Data Gagal dihapus.</div>";
             }
@@ -59,10 +59,10 @@
                         <tr class="table-primary">
                             <th>No</th>
                             <th>Nama</th>
-                            <th>Sekolah</th>
-                            <th>Jurusan</th>
-                            <th>No Hp</th>
                             <th>Alamat</th>
+                            <th>Keluhan</th>
+                            <th>No Hp</th>
+                            <th>Jaadwal</th>
                         </tr>
             </thead>
 
@@ -80,10 +80,10 @@
                     <tr>
                         <td><?php echo $no; ?></td>
                         <td><?php echo $data["nama"]; ?></td>
-                        <td><?php echo $data["sekolah"];   ?></td>
-                        <td><?php echo $data["jurusan"];   ?></td>
-                        <td><?php echo $data["no_hp"];   ?></td>
                         <td><?php echo $data["alamat"];   ?></td>
+                        <td><?php echo $data["keluhan"];   ?></td>
+                        <td><?php echo $data["no_hp"];   ?></td>
+                        <td><?php echo $data["jadwal"];   ?></td>
                     </tr>
                 </tbody>
             <?php

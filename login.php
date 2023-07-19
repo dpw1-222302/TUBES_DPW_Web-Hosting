@@ -1,101 +1,66 @@
-<?php
-// session_start():
-// Fungsi ini digunakan untuk memulai sesi atau mengaktifkan mekanisme sesi pada halaman
-session_start();
-// require_once 'connection.php' mengimpor atau memasukkan file connection.php untuk menghubungkan ke database atau kelas-kelas yang diperlukan. Dengan menggunakan require_once
-require_once 'koneksi.php';
-// kondisi yang memeriksa apakah pengguna sudah masuk atau sudah memiliki sesi yang valid. Jika kondisi ini benar, pengguna akan diarahkan (redirect) ke halaman index.php menggunakan fungsi header("Location: index.php").
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-    header("Location: index.php");
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initialscale=1.0">
+    <title>Halaman Login</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.c
+ss">
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
             <h1>Logo</h1>
         </a>
-        <div class="collapse navbar-collapse offset-9" id="navbarNav">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" arialabel="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.php">Login</a>
+                    <a class="nav-link" href="register.php">Register</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="history.php">Reservasi</a>
+                    <a class="nav-link" href="index.php">Product</a>
                 </li>
             </ul>
         </div>
     </nav>
+    <!-- Login Form -->
     <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-5 mx-auto mt-5">
-                <div class="card mt-5" style="padding: 20px; border-radius: 10px;">
-                    <form action="process.php" method="POST">
-                        <h1 style="text-align: center; font-weight: 700; font-size: 32px;">SIGN IN</h1>
-                        <?php
-                        if (
-                            isset($_SESSION['alert']) &&
-                            $_SESSION['alert'] == 'fill all fields'
-                        ) {
-                            echo '<div class="alert alert-danger" id="required-alert" role="alert">All fields are required. </div>';
-                            unset($_SESSION['alert']);
-                        }
-                        if (isset($_SESSION['alert']) && $_SESSION['alert'] == 'no email exist') {
-                            echo '<div class="alert alert-danger" id="required-alert" role="alert">Sorry, we could not find your account. </div>';
-                            unset($_SESSION['alert']);
-                        }
-                        if (isset($_SESSION['alert']) && $_SESSION['alert'] == 'wrong password') {
-                            echo '<div class="alert alert-danger" id="required-alert" role="alert">Wrong password! </div>';
-                            unset($_SESSION['alert']);
-                        }
-                        ?>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" name="email" placeholder="Email Address" value="<?php
-                        if (isset($_SESSION['email'])) {
-                            echo $_SESSION['email'];
-                            unset($_SESSION['email']);
-                        }
-                        if (isset($_COOKIE['email'])) {
-                            echo $_COOKIE['email'];
-                        } ?>">
-                        </div>
-                        <div class="mb-3">
-                            <input type="password" class="form-control" name="password" placeholder="Password" value="<?php
-                        if (isset($_COOKIE['password'])) {
-                            echo $_COOKIE['password'];
-                        } ?>">
-                        </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-checkinput" name="rem" <?php if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
-                            echo "checked";
-                        } ?>>
-                            <label class="form-check-label">Remember me</label>
-                        </div>
-                        <button type="submit" name="login" class="btn btn-primary" style="width: 100%;">Sign in</button>
-                        <p style="color: gray; font-size: 13px; padding-top: 5px; margin-bottom: 0; text-transform: capitalize;">
-                            don't have an account?
-                            <a href="register.php" style="color: teal;">create one</a>
-                        </p>
-                    </form>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Login</h5>
+                        <form action="prosesLogin.php" method="POST">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input required type="email" class="form-control" id="email" placeholder="Masukan email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input required type="password" class="form-control" id="password" placeholder="Masukkan password" name="password">
+                            </div>
+                            <button type="submit" class="btn btnprimary">Masuk</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.mi
+n.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>

@@ -43,7 +43,7 @@
 
             //Kondisi apakah berhasil atau tidak
             if ($hasil) {
-                header("Location:index.php");
+                header("Location:dataPendaftar.php");
             } else {
                 echo "<div class='alert alert-danger'> Data Gagal dihapus.</div>";
             }
@@ -56,13 +56,13 @@
             <thead>
                 <tr>
                     <table class="my-3 table table-bordered">
-                        <tr class="table-primary">
+                        <tr class="table-primary text-center">
                             <th>No</th>
                             <th>Nama</th>
-                            <th>Sekolah</th>
-                            <th>Jurusan</th>
-                            <th>No Hp</th>
                             <th>Alamat</th>
+                            <th>Keluhan</th>
+                            <th>No Hp</th>
+                            <th>Jadwal</th>
                             <th colspan='2'>Aksi</th>
 
                         </tr>
@@ -82,13 +82,15 @@
                     <tr>
                         <td><?php echo $no; ?></td>
                         <td><?php echo $data["nama"]; ?></td>
-                        <td><?php echo $data["sekolah"];   ?></td>
-                        <td><?php echo $data["jurusan"];   ?></td>
-                        <td><?php echo $data["no_hp"];   ?></td>
                         <td><?php echo $data["alamat"];   ?></td>
+                        <td><?php echo $data["keluhan"];   ?></td>
+                        <td><?php echo $data["no_hp"];   ?></td>
+                        <td><?php echo $data["jadwal"];   ?></td>
                         <td>
-                            <a href="update.php?id_peserta=<?php echo htmlspecialchars($data['id_peserta']); ?>" class="btn btn-warning" role="button">Update</a>
-                            <a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>?id_peserta=<?php echo $data['id_peserta']; ?>" class="btn btn-danger" role="button">Delete</a>
+                            <a href="../update.php?id_peserta=<?php echo htmlspecialchars($data['id_peserta']); ?>" class="btn btn-warning" role="button">Update</a>
+                        </td>
+                        <td>
+                        <a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>?id_peserta=<?php echo $data['id_peserta']; ?>" class="btn btn-danger" role="button">Delete</a>
                         </td>
                     </tr>
                 </tbody>
