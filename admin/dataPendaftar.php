@@ -63,7 +63,7 @@
                             <th>Keluhan</th>
                             <th>No Hp</th>
                             <th>Jadwal</th>
-                            <th colspan='2'>Aksi</th>
+                            <th colspan='1'>Aksi</th>
 
                         </tr>
             </thead>
@@ -87,9 +87,6 @@
                         <td><?php echo $data["no_hp"];   ?></td>
                         <td><?php echo $data["jadwal"];   ?></td>
                         <td>
-                            <a href="../update.php?id_peserta=<?php echo htmlspecialchars($data['id_peserta']); ?>" class="btn btn-warning" role="button">Update</a>
-                        </td>
-                        <td>
                         <a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>?id_peserta=<?php echo $data['id_peserta']; ?>" class="btn btn-danger" role="button">Delete</a>
                         </td>
                     </tr>
@@ -98,7 +95,6 @@
             }
             ?>
             </table>
-            <a href="../create.php" class="btn btn-primary" role="button">Tambah Data</a>
     </div>
 </body>
 
