@@ -1,28 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title>Riwayat Sakit</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+        body {
+            padding-top: 150px;
+        }
+
+        .navbar {
+            padding: 30px 0;
+            /* position: fixed; */
+            background-color: white;
+            width: 100%;
+            box-shadow: 0 0 10px rgb(217, 217, 217);
+            font-family: 'Poppins', sans-serif;
+
+        }
+
+        .navbar .btn {
+            background-color: #68b581;
+            font-weight: 600;
+            border-radius: 15px;
+            padding: 16px 32px;
+            transition: 0.2s;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+        }
+
+        .navbar-link {
+            padding: 40px 24px;
+            text-decoration: none;
+            color: inherit;
+
+        }
+
+        .navbar-link:hover {
+            text-decoration: none;
+            background-color: #68b581;
+            color: white;
+        }
+
+        .active {
+            background-color: #68b581;
+            color: white;
+        }
+
+        .btn-add {
+            background-color: #68b581;
+            border-radius: 15px;
+            padding: 12px 28px;
+            font-weight: 600;
+            transition: 0.2s;
+            text-align: center;
+            
+        }
+        
+    </style>
 </head>
-<title>Riwayat Reservasi</title>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">
-            <h1>Logo</h1>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <a class="navbar-brand offset-1" href="./index.php">
+            <img src="img/logo.png" alt="Logo" width="30" class="d-inline-block align-text-top">
+            Healthcare
         </a>
-        <div class="collapse navbar-collapse offset-9" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="login.php">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="history.php">Reservasi</a>
-                </li>
-            </ul>
+
+        <div class="navbar-links offset-7">
+            <a class="navbar-link" href="#home">Home</a>
+            <a class="navbar-link" href="#reservasi">Reservasi</a>
+            <a class="navbar-link active" href="./history.php">History</a>
         </div>
     </nav>
     <div class="container">
@@ -50,7 +108,7 @@
         }
         ?>
 
-
+        <a href="create.php"><button class="btn btn-add text-white">Tambah Data</button></a>
         <tr class="table-danger">
             <br>
             <thead>
@@ -76,26 +134,43 @@
             while ($data = mysqli_fetch_array($hasil)) {
                 $no++;
 
-            ?>
+                ?>
                 <tbody>
                     <tr>
-                        <td><?php echo $no; ?></td>
-                        <td><?php echo $data["nama"]; ?></td>
-                        <td><?php echo $data["alamat"];   ?></td>
-                        <td><?php echo $data["keluhan"];   ?></td>
-                        <td><?php echo $data["no_hp"];   ?></td>
-                        <td><?php echo $data["jadwal"];   ?></td>
                         <td>
-                            <a href="update.php?id_peserta=<?php echo htmlspecialchars($data['id_peserta']); ?>" class="btn btn-warning" role="button">Update</a>
+                            <?php echo $no; ?>
+                        </td>
+                        <td>
+                            <?php echo $data["nama"]; ?>
+                        </td>
+                        <td>
+                            <?php echo $data["alamat"]; ?>
+                        </td>
+                        <td>
+                            <?php echo $data["keluhan"]; ?>
+                        </td>
+                        <td>
+                            <?php echo $data["no_hp"]; ?>
+                        </td>
+                        <td>
+                            <?php echo $data["jadwal"]; ?>
+                        </td>
+                        <td>
+                            <a href="update.php?id_peserta=<?php echo htmlspecialchars($data['id_peserta']); ?>"
+                                class="btn btn-warning my-2" role="button">Update</a>
                         </td>
                     </tr>
                 </tbody>
-            <?php
+                <?php
             }
             ?>
             </table>
-            <a href="create.php" class="btn btn-primary" role="button">Tambah Data</a>
+
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
