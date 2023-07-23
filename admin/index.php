@@ -1,27 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
 
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css">
-    <title>Daftar Reservasi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 </head>
+<title>Daftar Reservasi</title>
 
 <body>
     <nav class="navbar navbar-expand-lg px-3" style="background-color: #001C30;">
         <a class="navbar-brand img-fluid" href="./index.php">
-            <img src="https://rstriharsi.com/wp-content/uploads/2020/01/Logo-Ths-Png.png" alt="Logo" width="50"
-                class="d-inline-block align-text-top">
+            <img src="https://rstriharsi.com/wp-content/uploads/2020/01/Logo-Ths-Png.png" alt="Logo" width="50" class="d-inline-block align-text-top">
         </a>
         <h3 class="text-white">RS JAKARTA</h3>
         <div class="collapse navbar-collapse" style="color:white;">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav offset-8">
                 <?php
-                session_start(); // Memulai session
-                
+
                 if (isset($_SESSION['nama_lengkap'])) {
                     echo "<li class='nav-item '>";
                     echo "<p class='nav-link'>Selamat datang, " . $_SESSION['nama_lengkap'] . "</p>";
@@ -29,17 +30,16 @@
                 }
                 ?>
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="logout.php">logout</a>
+                    <a class="nav-link text-white" href="logout.php">logout</a>
                 </li>
             </ul>
         </div>
-
     </nav>
-    <div class="container my-3 mt-5">
+    <div class="container">
         <br>
-        <h3>
-            <center>DAFTAR RESERVASI PERAWATAN</center>
-        </h3>
+        <h4>
+            <center>DAFTAR RESERVASI</center>
+        </h4>
         <?php
 
         include "../koneksi.php";
@@ -87,34 +87,21 @@
             while ($data = mysqli_fetch_array($hasil)) {
                 $no++;
 
-                ?>
+            ?>
                 <tbody>
                     <tr>
+                        <td><?php echo $no; ?></td>
+                        <td><?php echo $data["nama"]; ?></td>
+                        <td><?php echo $data["alamat"];   ?></td>
+                        <td><?php echo $data["keluhan"];   ?></td>
+                        <td><?php echo $data["no_hp"];   ?></td>
+                        <td><?php echo $data["jadwal"];   ?></td>
                         <td>
-                            <?php echo $no; ?>
-                        </td>
-                        <td>
-                            <?php echo $data["nama"]; ?>
-                        </td>
-                        <td>
-                            <?php echo $data["alamat"]; ?>
-                        </td>
-                        <td>
-                            <?php echo $data["keluhan"]; ?>
-                        </td>
-                        <td>
-                            <?php echo $data["no_hp"]; ?>
-                        </td>
-                        <td>
-                            <?php echo $data["jadwal"]; ?>
-                        </td>
-                        <td>
-                            <a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>?id_peserta=<?php echo $data['id_peserta']; ?>"
-                                class="btn btn-danger" role="button">Delete</a>
+                            <a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>?id_peserta=<?php echo $data['id_peserta']; ?>" class="btn btn-danger" role="button">Delete</a>
                         </td>
                     </tr>
                 </tbody>
-                <?php
+            <?php
             }
             ?>
             </table>
