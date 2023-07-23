@@ -53,7 +53,7 @@ if (!isset($_SESSION['user_id'])) {
 
             //Kondisi apakah berhasil atau tidak
             if ($hasil) {
-                header("Location:dataPendaftar.php");
+                header("Location:index.php");
             } else {
                 echo "<div class='alert alert-danger'> Data Gagal dihapus.</div>";
             }
@@ -87,15 +87,15 @@ if (!isset($_SESSION['user_id'])) {
             while ($data = mysqli_fetch_array($hasil)) {
                 $no++;
 
-            ?>
+                ?>
                 <tbody>
                     <tr>
                         <td><?php echo $no; ?></td>
                         <td><?php echo $data["nama"]; ?></td>
-                        <td><?php echo $data["alamat"];   ?></td>
-                        <td><?php echo $data["keluhan"];   ?></td>
-                        <td><?php echo $data["no_hp"];   ?></td>
-                        <td><?php echo $data["jadwal"];   ?></td>
+                        <td><?php echo $data["alamat"]; ?></td>
+                        <td><?php echo $data["keluhan"]; ?></td>
+                        <td><?php echo $data["no_hp"]; ?></td>
+                        <td><?php echo $data["jadwal"]; ?></td>
                         <td>
                             <a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>?id_peserta=<?php echo $data['id_peserta']; ?>" class="btn btn-danger" role="button">Delete</a>
                         </td>
