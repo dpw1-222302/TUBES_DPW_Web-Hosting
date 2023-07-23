@@ -9,85 +9,61 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <title>Riwayat Sakit</title>
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-
-        body {
-            padding-top: 150px;
+        .text-title {
+            font-family: 'Montserrat', sans-serif;
         }
 
-        .navbar {
-            padding: 30px 0;
-            /* position: fixed; */
-            background-color: white;
-            width: 100%;
-            box-shadow: 0 0 10px rgb(217, 217, 217);
-            font-family: 'Poppins', sans-serif;
-
-        }
-
-        .navbar .btn {
-            background-color: #68b581;
-            font-weight: 600;
-            border-radius: 15px;
-            padding: 16px 32px;
+        a .btn {
+            background-color: #7895CB;
+            font-size: 18px;
+            padding: 10px 32px;
             transition: 0.2s;
+            margin: 13px 0;
         }
 
-        .navbar-brand {
-            font-weight: 800;
+        a .btn:hover {
+            background-color: #001C30;
+            color: #001C30;
+            transition: 0.3s;
         }
-
-        .navbar-link {
-            padding: 40px 24px;
-            text-decoration: none;
-            color: inherit;
-
-        }
-
-        .navbar-link:hover {
-            text-decoration: none;
-            background-color: #68b581;
-            color: white;
-        }
-
-        .active {
-            background-color: #68b581;
-            color: white;
-        }
-
-        .btn-add {
-            background-color: #68b581;
-            border-radius: 15px;
-            padding: 12px 28px;
-            font-weight: 600;
-            transition: 0.2s;
-            text-align: center;
-            
-        }
-        
     </style>
 </head>
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <a class="navbar-brand offset-1" href="./index.php">
-            <img src="img/logo.png" alt="Logo" width="30" class="d-inline-block align-text-top">
-            Healthcare
+    <nav class="navbar navbar-expand-lg px-3" style="background-color: #001C30;">
+        <a class="navbar-brand img-fluid" href="./index.php">
+            <img src="https://rstriharsi.com/wp-content/uploads/2020/01/Logo-Ths-Png.png" alt="Logo" width="50"
+                class="d-inline-block align-text-top">
         </a>
+        <h3 class="text-white">RS JAKARTA</h3>
 
-        <div class="navbar-links offset-7">
-            <a class="navbar-link" href="#home">Home</a>
-            <a class="navbar-link" href="#reservasi">Reservasi</a>
-            <a class="navbar-link active" href="./history.php">History</a>
+        <div class="navbar-links ms-auto" style="color:white;">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="./index.php">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="./index.php#fasilitas">Fasilitas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="create.php">Reservasi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="history.php">History</a>
+                </li>
+            </ul>
         </div>
     </nav>
+
+    <!-- tabel riwayat reservasi -->
     <div class="container">
         <br>
-        <h4>
+        <h1 class="text-title mt-5 pt-3">
             <center>RIWAYAT RESERVASI</center>
-        </h4>
+        </h1>
         <?php
 
         include "koneksi.php";
@@ -108,7 +84,7 @@
         }
         ?>
 
-        <a href="create.php"><button class="btn btn-add text-white">Tambah Data</button></a>
+        <a href="create.php" class="btn-add"><button class="btn btn-add text-white">Tambah Data</button></a>
         <tr class="table-danger">
             <br>
             <thead>
@@ -165,7 +141,39 @@
             }
             ?>
             </table>
-
+    </div>
+    <div class="modal fade" id="editDataModal" tabindex="-1" role="dialog" aria-labelledby="editDataModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editDataModalLabel">Tambah Data Pengguna</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="nama">Nama</label>
+                            <input required type="text" class="form-control" id="nama">
+                        </div>
+                        <div class="form-group">
+                            <label for="harga">Harga</label>
+                            <input required type="number" class="form-control" id="harga">
+                        </div>
+                        <div class="form-group">
+                            <label for="number">Stok</label>
+                            <input required type="number" class="form-control" id="number">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary">Simpan</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"

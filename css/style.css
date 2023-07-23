@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@300&display=swap');
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+nav{
+    box-shadow: 0px 0px 25px rgba(32, 32, 32, 0.8);
+}
+/* .nav-item .nav-link{
+    color: white;
+    padding: 30px 32px;
+}
+.nav-item .nav-link:hover{
+    background-color: 7897d9;
+} */
+h2 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+
+.card {
+    box-shadow: 0px 0px 25px rgba(32, 32, 32, 0.8);
+    border: none;
+    margin-bottom: 100px;
+}
+
+
+
+.card-img-top {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+}
+
+.card-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.gb-blur {
+    backdrop-filter: blur(8px);
+}
+
+.btn-title .btn {
+    background-color: #68b581;
+    padding: 10px 30px;
+    font-size: 20px;
+    transition: 0.2s;
+}
+.btn-title .btn:hover {
+    background-color: #3c684a;
+}
+
+/* .btn {
+    
+} */
+footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #394867;
+    padding: 15px 0;
+    color: white;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.footer-links li a {
+    color: #333;
+    text-decoration: none;
+}
+
+.footer-contact-info {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.footer-about {
+    margin-top: 20px;
+}

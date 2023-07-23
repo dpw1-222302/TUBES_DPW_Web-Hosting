@@ -118,8 +118,7 @@ ss">
         <div class="collapse navbar-collapse offset-7" id="navbarNav">
             <div class="navbar-links">
                 <a class="navbar-link active" href="./index.php">Home</a>
-                <a href="./register.php" id="login-link" onclick="signUp()"><button class="btn contact text-white">Sign
-                        Up</button></a>
+                <a href="login.php" id="login-link" onclick="signUp()"><button class="btn contact text-white">Login</button></a>
             </div>
         </div>
     </nav>
