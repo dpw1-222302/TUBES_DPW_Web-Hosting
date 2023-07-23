@@ -12,6 +12,7 @@ if (isset($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initialscale=1.0">
     <title>Halaman Login</title>
+    <link rel="icon" type="image/x-icon" href="https://rstriharsi.com/wp-content/uploads/2020/01/Logo-Ths-Png.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.c
 ss">

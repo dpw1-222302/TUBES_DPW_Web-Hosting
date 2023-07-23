@@ -8,7 +8,8 @@
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <title>Riwayat Sakit</title>
+    <title>Riwayat</title>
+    <link rel="icon" type="image/x-icon" href="https://rstriharsi.com/wp-content/uploads/2020/01/Logo-Ths-Png.png">
     <link rel="stylesheet" href="css/style.css">
     <style>
         .text-title {
