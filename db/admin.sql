@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2023 at 11:15 AM
+-- Generation Time: Jul 25, 2023 at 04:49 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `userhealthcare`
+-- Database: `adm`
 --
 
 -- --------------------------------------------------------
@@ -40,7 +40,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `nama_lengkap`, `no_hp`, `email`, `password`) VALUES
-(6, 'novastella', '08234014128', 'admin', 'admin');
+(2, 'novastellla', '0821823812312', 'adm@gmail.com', 'admin');
 
 --
 -- Indexes for dumped tables

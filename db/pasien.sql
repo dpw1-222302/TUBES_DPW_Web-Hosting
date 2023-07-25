@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 19 Jun 2022 pada 16.07
--- Versi Server: 10.1.19-MariaDB
--- PHP Version: 5.6.28
+-- Generation Time: Jul 25, 2023 at 04:51 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.0.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `crud`
+-- Database: `datapendaftar`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `peserta`
+-- Table structure for table `peserta`
 --
 
 CREATE TABLE `peserta` (
@@ -33,15 +34,17 @@ CREATE TABLE `peserta` (
   `keluhan` varchar(50) NOT NULL,
   `no_hp` char(13) NOT NULL,
   `jadwal` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data untuk tabel `peserta`
+-- Dumping data for table `peserta`
 --
 
 INSERT INTO `peserta` (`id_peserta`, `nama`, `alamat`, `keluhan`, `no_hp`, `jadwal`) VALUES
-(1, 'RADHEN ADEBOS', 'SMK BANDUNG 21', 'TKJ', '08212121212', 'KIARA CONDONG TENGAH'),
-(3, 'RADHEN ADEBOS', 'SMK PUTRA PAJAJARAN', 'MULTIMEDIA', '081212312', 'BANDUNG');
+(14, 'Muhammad Nova Stella', 'purwokerto', 'sesak', '0120319039', '2023-07-28'),
+(16, 'ramdani', 'purwokerto', 'sesak', '92384328041', '2023-07-29'),
+(17, 'fajar', 'bekasi', 'batuk', '1230909', '2023-07-21'),
+(18, 'fajar ra', 'purwokerto', 'sesak', '0120319039', '2023-07-28');
 
 --
 -- Indexes for dumped tables
@@ -61,7 +64,9 @@ ALTER TABLE `peserta`
 -- AUTO_INCREMENT for table `peserta`
 --
 ALTER TABLE `peserta`
-  MODIFY `id_peserta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_peserta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
