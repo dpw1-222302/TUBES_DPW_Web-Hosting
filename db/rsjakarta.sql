@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 25, 2023 at 04:49 AM
+-- Generation Time: Jul 26, 2023 at 05:00 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -18,8 +18,34 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `adm`
+-- Database: `rsjakarta`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `peserta`
+--
+
+CREATE TABLE `peserta` (
+  `id_peserta` int(11) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `alamat` varchar(50) NOT NULL,
+  `keluhan` varchar(50) NOT NULL,
+  `no_hp` char(13) NOT NULL,
+  `jadwal` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `peserta`
+--
+
+INSERT INTO `peserta` (`id_peserta`, `nama`, `alamat`, `keluhan`, `no_hp`, `jadwal`) VALUES
+(14, 'Muhammad Nova Stella', 'purwokerto', 'sesak', '0120319039', '2023-07-28'),
+(16, 'ramdani', 'purwokerto', 'sesak', '92384328041', '2023-07-29'),
+(17, 'fajar', 'bekasi', 'batuk', '1230909', '2023-07-21'),
+(19, 'Muhammad Nova Stella', 'purwokerto', 'pilek', '0123030', '2023-07-28'),
+(20, 'arga', 'bekasi', 'sesak', '92384328041', '2023-07-29');
 
 -- --------------------------------------------------------
 
@@ -47,6 +73,12 @@ INSERT INTO `user` (`user_id`, `nama_lengkap`, `no_hp`, `email`, `password`) VAL
 --
 
 --
+-- Indexes for table `peserta`
+--
+ALTER TABLE `peserta`
+  ADD PRIMARY KEY (`id_peserta`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -55,6 +87,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `peserta`
+--
+ALTER TABLE `peserta`
+  MODIFY `id_peserta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `user`

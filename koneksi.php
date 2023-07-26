@@ -3,7 +3,7 @@
 $host = "localhost";
 $user = "root";
 $password = "";
-$db = "datapendaftar";
+$db = "rsjakarta";
 
 
 $kon = mysqli_connect($host, $user, $password, $db);
