@@ -70,19 +70,6 @@
         include "koneksi.php";
 
         //Cek apakah ada kiriman form dari method post
-        if (isset($_GET['id_peserta'])) {
-            $id_peserta = htmlspecialchars($_GET["id_peserta"]);
-
-            $sql = "delete from peserta where id_peserta='$id_peserta' ";
-            $hasil = mysqli_query($kon, $sql);
-
-            //Kondisi apakah berhasil atau tidak
-            if ($hasil) {
-                header("Location:history.php");
-            } else {
-                echo "<div class='alert alert-danger'> Data Gagal dihapus.</div>";
-            }
-        }
         ?>
 
         <a href="create.php" class="btn-add"><button class="btn btn-add text-white">Tambah Data</button></a>
@@ -142,39 +129,6 @@
             }
             ?>
             </table>
-    </div>
-    <div class="modal fade" id="editDataModal" tabindex="-1" role="dialog" aria-labelledby="editDataModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editDataModalLabel">Tambah Data Pengguna</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="nama">Nama</label>
-                            <input required type="text" class="form-control" id="nama">
-                        </div>
-                        <div class="form-group">
-                            <label for="harga">Harga</label>
-                            <input required type="number" class="form-control" id="harga">
-                        </div>
-                        <div class="form-group">
-                            <label for="number">Stok</label>
-                            <input required type="number" class="form-control" id="number">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button type="button" class="btn btn-primary">Simpan</button>
-                </div>
-            </div>
-        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
